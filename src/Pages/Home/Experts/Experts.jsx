@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import './Experts.css'
 import expert1 from '../../../Images/Experts/expert-1.jpg'
 import expert2 from '../../../Images/Experts/expert-2.jpg'
 import expert3 from '../../../Images/Experts/expert-3.jpg'
@@ -22,7 +23,7 @@ const Experts = () => {
 
     return (
         <div className='container'>
-            <h2 className=''>Our Experts</h2>
+            <h2 className='expert-title mt-5'>Our Experts</h2>
 
             <div className='row'>
                 {

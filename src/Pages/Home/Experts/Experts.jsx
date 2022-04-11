@@ -21,7 +21,7 @@ const Experts = () => {
 
     return (
         <div>
-            <h2>Our Experts</h2>
+            <h2 className=''>Our Experts</h2>
         </div>
     );
 };

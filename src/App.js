@@ -7,7 +7,7 @@ import Footer from './Shared/Footer/Footer';
 
 function App() {
   return (
-    <div className="App">
+    <div className="">
 
       <Header></Header>
 

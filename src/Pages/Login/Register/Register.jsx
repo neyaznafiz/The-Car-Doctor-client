@@ -11,6 +11,11 @@ const Register = () => {
         navigate('/login')
     }
 
+
+    const handleregister = event =>{
+        event.preventDefault()
+    }
+
     return (
         <div className='register-form'>
             <h2 style={{ textAlign: 'center' }, { marginTop: '40px' }}>Please Register</h2>
@@ -22,7 +27,7 @@ const Register = () => {
 
                 <input type="password" name="password" id="" placeholder='Password' required />
 
-                <input type="submit" value="Register" />
+                <input onClick={handleregister} type="submit" value="Register" />
             </form>
 
             <p> Already have an account <Link to='/login' onClick={navigateLogin} className='text-secondary fw-bold text-decoration-none'  >Please Login</Link></p>

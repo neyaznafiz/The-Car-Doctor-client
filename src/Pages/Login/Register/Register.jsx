@@ -14,20 +14,21 @@ const Register = () => {
 
     const handleregister = event =>{
         event.preventDefault()
+        console.log(event.target);
     }
 
     return (
         <div className='register-form'>
             <h2 style={{ textAlign: 'center' }, { marginTop: '40px' }}>Please Register</h2>
 
-            <form>
+            <form onSubmit={handleregister}>
                 <input type="text" name='name' placeholder='Your Name' />
 
                 <input type="email" name="email" id="" placeholder='Email' required />
 
                 <input type="password" name="password" id="" placeholder='Password' required />
 
-                <input onClick={handleregister} type="submit" value="Register" />
+                <input type="submit" value="Register" />
             </form>
 
             <p> Already have an account <Link to='/login' onClick={navigateLogin} className='text-secondary fw-bold text-decoration-none'  >Please Login</Link></p>

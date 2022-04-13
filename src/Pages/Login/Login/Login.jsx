@@ -1,11 +1,13 @@
 import React from 'react';
 import { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
     const emailRef = useRef('')
     const passwordRef = useRef('')
+    const navigate = useNavigate()
 
     const handleSubmit = event => {
         event.preventDefault()
@@ -16,6 +18,10 @@ const Login = () => {
         console.log(email, password);
     }
 
+
+    const navigateRegister = event =>{
+navigate('/register')
+    }
 
     return (
         <div className='container w-50 mx-auto'>
@@ -41,6 +47,8 @@ const Login = () => {
                     Submit
                 </Button>
             </Form>
+
+<p>Are you new here? <span className='text-secondary fw-bold '  onClick={navigateRegister}>Please Register</span></p>
 
         </div>
     );

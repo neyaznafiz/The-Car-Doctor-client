@@ -44,10 +44,10 @@ const Login = () => {
     }
 
     return (
-        <div className='container w-50 mx-auto'>
+        <div className='container mx-auto'>
             <h2 className='text-center'>Please Login</h2>
 
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} className="w-50 mx-auto">
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control ref={emailRef} type="email" required />
@@ -64,11 +64,15 @@ const Login = () => {
                 <Button variant="dark" type="submit">
                     Submit
                 </Button>
+
+            <p className='pt-4'>Are you new here? <Link to='/register' onClick={navigateRegister} className='text-secondary fw-bold text-decoration-none'  >Please Register</Link></p>
+
             </Form>
 
-            <p>Are you new here? <Link to='/register' onClick={navigateRegister} className='text-secondary fw-bold text-decoration-none'  >Please Register</Link></p>
 
+            <div className='w-75 mx-auto'>
             <SocialLogin></SocialLogin>
+            </div>
 
         </div>
     );

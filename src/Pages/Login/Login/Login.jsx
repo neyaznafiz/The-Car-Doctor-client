@@ -29,7 +29,7 @@ const Login = () => {
 
     let errorElement
     if (error) {
-        errorElement = <div className='border border-danger rounded-pill pt-3 px-4 mb-3 w-75 mx-auto text-bold fw-bold' style={{fontFamily: 'monospace'}}>
+        errorElement = <div className='border border-danger pt-3 mb-3 col-5 mx-auto text-bold fw-bold' style={{fontFamily: 'monospace'}}>
         <p className='text-danger text-center'>Error: {error?.message}</p>
         </div>
     }
@@ -63,7 +63,7 @@ const Login = () => {
     }
 
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto '>
             <h2 className='text-center mt-5'>Please Login</h2>
 
             <Form onSubmit={handleSubmit} className="col-5 mx-auto">

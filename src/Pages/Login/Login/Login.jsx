@@ -64,24 +64,20 @@ const Login = () => {
 
     return (
         <div className='container mx-auto'>
-            <h2 className='text-center'>Please Login</h2>
+            <h2 className='text-center mt-5'>Please Login</h2>
 
-            <Form onSubmit={handleSubmit} className="w-50 mx-auto">
+            <Form onSubmit={handleSubmit} className="col-5 mx-auto">
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control ref={emailRef} type="email" required />
+                    <Form.Control className='rounded-0' ref={emailRef} type="email" placeholder='Email' required />
 
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control ref={passwordRef} type="password" required />
+                    <Form.Control className='rounded-0' ref={passwordRef} type="password" placeholder='Password' required />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
-                <Button variant="dark" type="submit">
-                    Submit
+                
+                <Button variant="dark w-25" type="submit" >
+                    Login
                 </Button>
 
                 <p className='pt-4'>Are you new here? <Link to='/register' onClick={navigateRegister} className='text-secondary fw-bold text-decoration-none'  >Please Register</Link></p>

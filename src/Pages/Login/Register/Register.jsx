@@ -50,7 +50,7 @@ const Register = () => {
 
                 <input type="password" name="password" id="" placeholder='Password' required />
 
-                <input type="submit" value="Register" />
+                <input className='bg-dark text-white rounded-2 w-25' type="submit" value="Register" />
             </form>
 
             <p> Already have an account <Link to='/login' onClick={navigateLogin} className='text-secondary fw-bold text-decoration-none'  >Please Login</Link></p>

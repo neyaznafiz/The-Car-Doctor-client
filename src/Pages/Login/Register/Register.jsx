@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 const Register = () => {
 
-const[agree, setAgree]=useState(false)
+    const [agree, setAgree] = useState(false)
 
     const [
         createUserWithEmailAndPassword,
@@ -56,10 +56,15 @@ const[agree, setAgree]=useState(false)
                     <input type="password" name="password" id="" placeholder='Password' required />
 
 
-                    <input onClick={()=>setAgree(!agree)} type="checkbox" name="terms" id="terms" className='mb-3 ' />
-                    <label htmlFor="terms" className={agree ? 'ps-2': 'ps-2 text-danger'}>Accept Genius Car Terms anc Conditions.</label>
+                    <input onClick={() => setAgree(!agree)} type="checkbox" name="terms" id="terms" className='mb-3 ' />
+                    {/* <label htmlFor="terms" className={agree ? 'ps-2': 'ps-2 text-danger'}>Accept Genius Car Terms anc Conditions.</label> */}
+                    <label htmlFor="terms" className={`ps-2 ${agree ? '' : 'text-danger'}`}>Accept Genius Car Terms anc Conditions.</label>
 
-                    <input className='bg-dark text-white rounded-2 w-25' type="submit" value="Register" />
+                    <input
+                    disabled={!agree}
+                        className='bg-dark text-white rounded-2 w-25'
+                        type="submit"
+                        value="Register" />
                 </form>
 
                 <p> Already have an account <Link to='/login' onClick={navigateLogin} className='text-secondary fw-bold text-decoration-none  border-bottom border-dark px-2 pb-1' style={{ fontFamily: 'initial' }}>Please Login</Link></p>
@@ -70,7 +75,7 @@ const[agree, setAgree]=useState(false)
                 <SocialLogin></SocialLogin>
             </div>
 
-        </div>
+        </div >
     );
 };
 

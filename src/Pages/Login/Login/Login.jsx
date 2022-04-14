@@ -29,8 +29,8 @@ const Login = () => {
 
     let errorElement
     if (error) {
-        errorElement = <div>
-            <p className='text-danger'>Error: {error?.message}</p>
+        errorElement = <div className='border border-danger rounded-pill pt-3 px-4 mb-3 w-75 mx-auto text-bold fw-bold' style={{fontFamily: 'monospace'}}>
+        <p className='text-danger text-center'>Error: {error?.message}</p>
         </div>
     }
 
@@ -43,7 +43,7 @@ const Login = () => {
         )
     }
 
-    
+
     if (user) {
         navigate(from, { replace: true });
     }

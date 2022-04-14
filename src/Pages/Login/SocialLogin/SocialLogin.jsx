@@ -21,8 +21,8 @@ const SocialLogin = () => {
 
     let errorElement
     if (error || error3 || error4) {
-        errorElement = <div>
-            <p className='text-danger'>Error: {error?.message} {error3?.message} {error4?.message}</p>
+        errorElement = <div className='border border-danger rounded-pill pt-3 px-4 mb-3 w-75 mx-auto text-bold fw-bold' style={{fontFamily: 'monospace'}}>
+            <p className='text-danger text-center'>Error: {error?.message} {error3?.message} {error4?.message}</p>
         </div>
     }
 

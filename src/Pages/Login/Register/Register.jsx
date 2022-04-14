@@ -4,8 +4,11 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../Firebase/firebase.init'
 import './Register.css'
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { useState } from 'react';
 
 const Register = () => {
+
+const[agree, setAgree]=useState(false)
 
     const [
         createUserWithEmailAndPassword,
@@ -32,16 +35,18 @@ const Register = () => {
         const email = event.target.email.value
         const password = event.target.password.value
 
-        createUserWithEmailAndPassword(email, password)
+
+        // const agree = event.target.terms.checked
+        if (agree) {
+            createUserWithEmailAndPassword(email, password)
+        }
     }
-
-
 
 
     return (
         <div>
             <div className='register-form pt-5'>
-                <h2 style={{ textAlign: 'center' }, { marginTop: '40px' }, {fontFamily: 'initial'}}>Please Register</h2>
+                <h2 style={{ textAlign: 'center' }, { marginTop: '40px' }, { fontFamily: 'initial' }}>Please Register</h2>
 
                 <form onSubmit={handleregister}>
                     <input type="text" name='name' placeholder='Your Name' />
@@ -51,13 +56,13 @@ const Register = () => {
                     <input type="password" name="password" id="" placeholder='Password' required />
 
 
-                    <input type="checkbox" name="terms" id="terms" className='mb-3 '/>
-                    <label htmlFor="terms">Accept Genius Car Terms anc Conditions.</label>
+                    <input onClick={()=>setAgree(!agree)} type="checkbox" name="terms" id="terms" className='mb-3 ' />
+                    <label htmlFor="terms" className={agree ? 'ps-2': 'ps-2 text-danger'}>Accept Genius Car Terms anc Conditions.</label>
 
                     <input className='bg-dark text-white rounded-2 w-25' type="submit" value="Register" />
                 </form>
 
-                <p> Already have an account <Link to='/login' onClick={navigateLogin} className='text-secondary fw-bold text-decoration-none  border-bottom border-dark px-2 pb-1' style={{fontFamily: 'initial'}}>Please Login</Link></p>
+                <p> Already have an account <Link to='/login' onClick={navigateLogin} className='text-secondary fw-bold text-decoration-none  border-bottom border-dark px-2 pb-1' style={{ fontFamily: 'initial' }}>Please Login</Link></p>
 
             </div>
 

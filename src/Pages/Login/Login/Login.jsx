@@ -25,6 +25,25 @@ const Login = () => {
     const location = useLocation()
     let from = location.state?.from?.pathname || "/";
 
+    
+
+    let errorElement
+    if (error) {
+        errorElement = <div>
+            <p className='text-danger'>Error: {error?.message}</p>
+        </div>
+    }
+
+
+    if (loading) {
+        return (
+            <div className="progress">
+                <div className="progress-bar progress-bar-striped bg-danger" role="progressbar" style={{width: "100%"}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        )
+    }
+
+    
     if (user) {
         navigate(from, { replace: true });
     }
@@ -65,13 +84,14 @@ const Login = () => {
                     Submit
                 </Button>
 
-            <p className='pt-4'>Are you new here? <Link to='/register' onClick={navigateRegister} className='text-secondary fw-bold text-decoration-none'  >Please Register</Link></p>
+                <p className='pt-4'>Are you new here? <Link to='/register' onClick={navigateRegister} className='text-secondary fw-bold text-decoration-none'  >Please Register</Link></p>
 
             </Form>
 
+            {errorElement}
 
             <div className='w-75 mx-auto'>
-            <SocialLogin></SocialLogin>
+                <SocialLogin></SocialLogin>
             </div>
 
         </div>

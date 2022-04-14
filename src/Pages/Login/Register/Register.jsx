@@ -5,6 +5,7 @@ import auth from '../../../Firebase/firebase.init'
 import './Register.css'
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { useState } from 'react';
+import Loading from '../../../Shared/Loading/Loading';
 
 const Register = () => {
 
@@ -35,11 +36,7 @@ const Register = () => {
 
 
     if (loading) {
-        return (
-            <div className="progress">
-                <div className="progress-bar progress-bar-striped bg-danger" role="progressbar" style={{ width: "100%" }} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-        )
+        return <Loading></Loading>
     }
 
     if (user) {

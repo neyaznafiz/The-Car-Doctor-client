@@ -6,6 +6,7 @@ import github from '../../../Images/Social/github.png'
 import { useSignInWithGithub, useSignInWithGoogle, useSignInWithTwitter } from 'react-firebase-hooks/auth';
 import auth from '../../../Firebase/firebase.init';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../../../Shared/Loading/Loading';
 
 const SocialLogin = () => {
 
@@ -28,11 +29,7 @@ const SocialLogin = () => {
 
 
     if (loading || loading3 || loading4) {
-        return (
-            <div className="progress">
-                <div className="progress-bar progress-bar-striped bg-danger" role="progressbar" style={{width: "100%"}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-        )
+        return <Loading></Loading>
     }
 
     if (user || user3 || user4) {

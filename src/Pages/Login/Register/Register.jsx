@@ -53,7 +53,7 @@ const Register = () => {
                 <input className='bg-dark text-white rounded-2 w-25' type="submit" value="Register" />
             </form>
 
-            <p> Already have an account <Link to='/login' onClick={navigateLogin} className='text-secondary fw-bold text-decoration-none'  >Please Login</Link></p>
+            <p> Already have an account <Link to='/login' onClick={navigateLogin} className='text-secondary fw-bold text-decoration-none  border-bottom border-dark px-2 pb-1'>Please Login</Link></p>
 
             </div>
 

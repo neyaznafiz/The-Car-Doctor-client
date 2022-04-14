@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../Firebase/firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -16,6 +16,7 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth)
 
     const emailRef = useRef('')
     const passwordRef = useRef('')
@@ -25,12 +26,12 @@ const Login = () => {
     const location = useLocation()
     let from = location.state?.from?.pathname || "/";
 
-    
+
 
     let errorElement
     if (error) {
-        errorElement = <div className='border border-danger pt-3 mb-3 col-5 mx-auto text-bold fw-bold' style={{fontFamily: 'monospace'}}>
-        <p className='text-danger text-center'>Error: {error?.message}</p>
+        errorElement = <div className='border border-danger pt-3 mb-3 col-5 mx-auto text-bold fw-bold' style={{ fontFamily: 'monospace' }}>
+            <p className='text-danger text-center'>Error: {error?.message}</p>
         </div>
     }
 
@@ -38,7 +39,7 @@ const Login = () => {
     if (loading) {
         return (
             <div className="progress">
-                <div className="progress-bar progress-bar-striped bg-danger" role="progressbar" style={{width: "100%"}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                <div className="progress-bar progress-bar-striped bg-danger" role="progressbar" style={{ width: "100%" }} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
         )
     }
@@ -56,6 +57,13 @@ const Login = () => {
 
         signInWithEmailAndPassword(email, password)
     }
+
+    const resetPassword = async () => {
+        const email = emailRef.current.value
+        await sendPasswordResetEmail(email)
+        alert('Sent email')
+    }
+
 
 
     const navigateRegister = event => {
@@ -75,12 +83,17 @@ const Login = () => {
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Control className='rounded-0' ref={passwordRef} type="password" placeholder='Password' required />
                 </Form.Group>
-                
+
                 <Button variant="dark w-25" type="submit" >
                     Login
                 </Button>
 
-                <p className='pt-4'>Are you new here? <Link to='/register' onClick={navigateRegister} className='text-secondary fw-bold text-decoration-none'  >Please Register</Link></p>
+
+                <div className='mt-4'>
+                    <Link to='/register' onClick={resetPassword} className='text-secondary fw-bold text-decoration-none border-bottom border-dark px-2 pb-1 '>Forget Password?</Link>
+
+                    <p className='pt-3'>Are you new here? <Link to='/register' onClick={navigateRegister} className='text-secondary fw-bold text-decoration-none  border-bottom border-dark px-2 pb-1'>Please Register</Link></p>
+                </div>
 
             </Form>
 

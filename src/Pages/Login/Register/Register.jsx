@@ -13,8 +13,8 @@ const Register = () => {
     const [
         createUserWithEmailAndPassword,
         user,
-        // loading,
-        // error,
+        loading,
+        error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
     const navigate = useNavigate()
@@ -22,6 +22,22 @@ const Register = () => {
 
     const navigateLogin = event => {
         navigate('/login')
+    }
+
+    let errorElement
+    if (error) {
+        errorElement = <div className='border border-danger pt-3 mb-3 col-5 mx-auto text-bold fw-bold' style={{ fontFamily: 'monospace' }}>
+            <p className='text-danger text-center'>Error: {error?.message}</p>
+        </div>
+    }
+
+
+    if (loading) {
+        return (
+            <div className="progress">
+                <div className="progress-bar progress-bar-striped bg-danger" role="progressbar" style={{ width: "100%" }} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        )
     }
 
     if (user) {

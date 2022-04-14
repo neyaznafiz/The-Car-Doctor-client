@@ -35,7 +35,7 @@ const Register = () => {
     }
 
 
-    if (loading) {
+    if (loading || updating) {
         return <Loading></Loading>
     }
 

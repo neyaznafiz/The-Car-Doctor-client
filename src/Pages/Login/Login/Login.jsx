@@ -37,7 +37,7 @@ const Login = () => {
     }
 
 
-    if (loading) {
+    if (loading || sending) {
         return <Loading></Loading>
     }
 

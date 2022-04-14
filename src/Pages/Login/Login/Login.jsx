@@ -6,6 +6,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../Firebase/firebase.init';
 import Loading from '../../../Shared/Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
@@ -58,7 +60,7 @@ const Login = () => {
     const resetPassword = async () => {
         const email = emailRef.current.value
         await sendPasswordResetEmail(email)
-        alert('Sent email')
+        toast('Sent email')
     }
 
 
@@ -69,7 +71,7 @@ const Login = () => {
 
     return (
         <div className='container mx-auto' >
-            <h2 className='text-center mt-5' style={{fontFamily: 'initial'}}>Please Login</h2>
+            <h2 className='text-center mt-5' style={{ fontFamily: 'initial' }}>Please Login</h2>
 
             <Form onSubmit={handleSubmit} className="col-5 mx-auto">
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -87,9 +89,9 @@ const Login = () => {
 
 
                 <div className='mt-4'>
-                    <Link to='/login' onClick={resetPassword} className='text-secondary fw-bold text-decoration-none border-bottom border-dark px-2 pb-1' style={{fontFamily: 'initial'}}>Forget Password?</Link>
+                    <span onClick={resetPassword} className='text-secondary fw-bold text-decoration-none border-bottom border-dark px-2 pb-1' style={{ fontFamily: 'initial' }, {cursor: 'pointer'}}>Forget Password?</span>
 
-                    <p className='pt-3'>Are you new here? <Link to='/register' onClick={navigateRegister} className='text-secondary fw-bold text-decoration-none  border-bottom border-dark px-2 pb-1' style={{fontFamily: 'initial'}}>Please Register</Link></p>
+                    <p className='pt-3'>Are you new here? <Link to='/register' onClick={navigateRegister} className='text-secondary fw-bold text-decoration-none  border-bottom border-dark px-2 pb-1' style={{ fontFamily: 'initial' }}>Please Register</Link></p>
                 </div>
 
             </Form>
@@ -99,6 +101,8 @@ const Login = () => {
             <div className='w-75 mx-auto'>
                 <SocialLogin></SocialLogin>
             </div>
+
+            <ToastContainer />
 
         </div>
     );

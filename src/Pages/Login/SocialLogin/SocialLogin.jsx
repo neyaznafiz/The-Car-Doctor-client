@@ -26,9 +26,19 @@ const SocialLogin = () => {
         </div>
     }
 
+
+    if (loading || loading3 || loading4) {
+        return (
+            <div className="progress">
+                <div className="progress-bar progress-bar-striped bg-danger" role="progressbar" style={{width: "100%"}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        )
+    }
+
     if (user || user3 || user4) {
         navigate('/home')
     }
+
 
 
 

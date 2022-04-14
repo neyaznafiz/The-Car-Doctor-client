@@ -4,6 +4,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../Firebase/firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
 
@@ -49,8 +50,8 @@ const Login = () => {
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control ref={emailRef} type="email"  required />
-                   
+                    <Form.Control ref={emailRef} type="email" required />
+
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -66,6 +67,8 @@ const Login = () => {
             </Form>
 
             <p>Are you new here? <Link to='/register' onClick={navigateRegister} className='text-secondary fw-bold text-decoration-none'  >Please Register</Link></p>
+
+            <SocialLogin></SocialLogin>
 
         </div>
     );

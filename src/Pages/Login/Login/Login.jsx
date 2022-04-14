@@ -36,6 +36,7 @@ const Login = () => {
         errorElement = <div className='border border-danger pt-3 mb-3 col-5 mx-auto text-bold fw-bold' style={{ fontFamily: 'monospace' }}>
             <p className='text-danger text-center'>Error: {error?.message}</p>
         </div>
+    
     }
 
 
@@ -102,6 +103,7 @@ const Login = () => {
             </Form>
 
             {errorElement}
+            
 
             <div className='w-75 mx-auto'>
                 <SocialLogin></SocialLogin>

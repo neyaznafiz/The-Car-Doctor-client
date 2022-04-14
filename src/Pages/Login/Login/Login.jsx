@@ -71,8 +71,8 @@ const Login = () => {
     }
 
     return (
-        <div className='container mx-auto '>
-            <h2 className='text-center mt-5'>Please Login</h2>
+        <div className='container mx-auto' >
+            <h2 className='text-center mt-5' style={{fontFamily: 'initial'}}>Please Login</h2>
 
             <Form onSubmit={handleSubmit} className="col-5 mx-auto">
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -90,9 +90,9 @@ const Login = () => {
 
 
                 <div className='mt-4'>
-                    <Link to='/register' onClick={resetPassword} className='text-secondary fw-bold text-decoration-none border-bottom border-dark px-2 pb-1 '>Forget Password?</Link>
+                    <Link to='/login' onClick={resetPassword} className='text-secondary fw-bold text-decoration-none border-bottom border-dark px-2 pb-1' style={{fontFamily: 'initial'}}>Forget Password?</Link>
 
-                    <p className='pt-3'>Are you new here? <Link to='/register' onClick={navigateRegister} className='text-secondary fw-bold text-decoration-none  border-bottom border-dark px-2 pb-1'>Please Register</Link></p>
+                    <p className='pt-3'>Are you new here? <Link to='/register' onClick={navigateRegister} className='text-secondary fw-bold text-decoration-none  border-bottom border-dark px-2 pb-1' style={{fontFamily: 'initial'}}>Please Register</Link></p>
                 </div>
 
             </Form>

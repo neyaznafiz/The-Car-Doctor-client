@@ -40,25 +40,29 @@ const Register = () => {
 
     return (
         <div>
-        <div className='register-form'>
-            <h2 style={{ textAlign: 'center' }, { marginTop: '40px' }}>Please Register</h2>
+            <div className='register-form pt-5'>
+                <h2 style={{ textAlign: 'center' }, { marginTop: '40px' }, {fontFamily: 'initial'}}>Please Register</h2>
 
-            <form onSubmit={handleregister}>
-                <input type="text" name='name' placeholder='Your Name' />
+                <form onSubmit={handleregister}>
+                    <input type="text" name='name' placeholder='Your Name' />
 
-                <input type="email" name="email" id="" placeholder='Email' required />
+                    <input type="email" name="email" id="" placeholder='Email' required />
 
-                <input type="password" name="password" id="" placeholder='Password' required />
+                    <input type="password" name="password" id="" placeholder='Password' required />
 
-                <input className='bg-dark text-white rounded-2 w-25' type="submit" value="Register" />
-            </form>
 
-            <p> Already have an account <Link to='/login' onClick={navigateLogin} className='text-secondary fw-bold text-decoration-none  border-bottom border-dark px-2 pb-1'>Please Login</Link></p>
+                    <input type="checkbox" name="terms" id="terms" className='mb-3 '/>
+                    <label htmlFor="terms">Accept Genius Car Terms anc Conditions.</label>
+
+                    <input className='bg-dark text-white rounded-2 w-25' type="submit" value="Register" />
+                </form>
+
+                <p> Already have an account <Link to='/login' onClick={navigateLogin} className='text-secondary fw-bold text-decoration-none  border-bottom border-dark px-2 pb-1' style={{fontFamily: 'initial'}}>Please Login</Link></p>
 
             </div>
 
             <div className='w-50 mx-auto'>
-            <SocialLogin></SocialLogin>
+                <SocialLogin></SocialLogin>
             </div>
 
         </div>

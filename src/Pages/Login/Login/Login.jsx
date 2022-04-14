@@ -59,8 +59,13 @@ const Login = () => {
 
     const resetPassword = async () => {
         const email = emailRef.current.value
-        await sendPasswordResetEmail(email)
-        toast('Sent email')
+        if (email) {
+            await sendPasswordResetEmail(email)
+            toast('Sent email')
+        }
+        else{
+            toast('Please enter your email address')
+        }
     }
 
 
@@ -89,7 +94,7 @@ const Login = () => {
 
 
                 <div className='mt-4'>
-                    <span onClick={resetPassword} className='text-secondary fw-bold text-decoration-none border-bottom border-dark px-2 pb-1' style={{ fontFamily: 'initial' }, {cursor: 'pointer'}}>Forget Password?</span>
+                    <span onClick={resetPassword} className='text-secondary fw-bold text-decoration-none border-bottom border-dark px-2 pb-1' style={{ fontFamily: 'initial' }, { cursor: 'pointer' }}>Forget Password?</span>
 
                     <p className='pt-3'>Are you new here? <Link to='/register' onClick={navigateRegister} className='text-secondary fw-bold text-decoration-none  border-bottom border-dark px-2 pb-1' style={{ fontFamily: 'initial' }}>Please Register</Link></p>
                 </div>

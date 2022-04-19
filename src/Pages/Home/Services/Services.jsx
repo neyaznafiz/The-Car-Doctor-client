@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import PageTitle from '../../../Shared/PageTitle/PageTitle';
 import Service from '../Service/Service';
 import './Services.css'
 

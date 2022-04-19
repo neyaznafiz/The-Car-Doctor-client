@@ -20,6 +20,7 @@ function App() {
       <Routes>
 
         <Route path='/' element={<Home></Home>}></Route>
+        
         <Route path='/home' element={<Home></Home>}></Route>
 
         <Route path='/service/:serviceId' element={<ServiceDetail></ServiceDetail>}></Route>

@@ -64,7 +64,7 @@ const Register = () => {
     return (
         <div>
             <div className='register-form pt-5'>
-                <h2 style={{ textAlign: 'center' }, { marginTop: '40px' }, { fontFamily: 'initial' }}>Please Register</h2>
+                <h2 style={{ fontFamily: 'initial' }} >Please Register</h2>
 
                 <form onSubmit={handleregister}>
                     <input type="text" name='name' placeholder='Your Name' />

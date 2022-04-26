@@ -27,20 +27,31 @@ const CheckOut = () => {
     //     setUser(newUser);
     // }
 
+    const handlePlaceOrder = event => {
+        event.preventDefault()
+        const order = {
+            email: user.email,
+            service: service.name,
+            serviceId: serviceId,
+            address: event.target.address.value,
+            phone: event.target.phone.value
+        }
+    }
+
     return (
         <div className='w-50 mx-auto'>
             <h2>Please order: {service.name}</h2>
 
-            <form>
-                <input className='w-100 mb-2' type="text" name='name' value={user.displayName}placeholder='Name' required readOnly disabled />
+            <form onSubmit={handlePlaceOrder}>
+                <input className='w-100 mb-2' type="text" name='name' value={user.displayName} placeholder='Name' required readOnly disabled />
                 <br />
                 <input className='w-100 mb-2' type="email" name='email' value={user.email} placeholder='Email' required readOnly disabled />
                 <br />
                 <input className='w-100 mb-2' type="text" name='service' value={service.name} placeholder='Service' required disabled />
                 <br />
-                <input /*onChange={handleAddressChange} value={user.address}*/ className='w-100 mb-2' type="text" name='address'  placeholder='Address' required autoComplete='off' />
+                <input /*onChange={handleAddressChange} value={user.address}*/ className='w-100 mb-2' type="text" name='address' placeholder='Address' required autoComplete='off' />
                 <br />
-                <input className='w-100 mb-2' type="text" name='phone' /*value={user.phone} */placeholder='Phone' required />
+                <input className='w-100 mb-2' type="text" name='phone' /*value={user.phone} */ placeholder='Phone' required />
                 <br />
                 <input className='btn btn-dark' type="submit" value='Place Order' />
             </form>

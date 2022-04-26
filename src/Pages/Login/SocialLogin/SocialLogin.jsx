@@ -16,7 +16,7 @@ const SocialLogin = () => {
     const [signInWithTwitter, user3, loading3, error3] = useSignInWithTwitter(auth);
 
     const navigate = useNavigate()
-    
+
     const location = useLocation()
     let from = location.state?.from?.pathname || "/";
 
@@ -36,7 +36,7 @@ const SocialLogin = () => {
     }
 
     if (user || user3 || user4) {
-        navigate(from, { replace: true });
+        navigate(from, { replace: true })
     }
 
 

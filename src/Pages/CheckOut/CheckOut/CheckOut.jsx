@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import useServiceDetail from '../../../Hooks/useServiceDetail';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../Firebase/firebase.init'
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const CheckOut = () => {
 
@@ -36,16 +38,25 @@ const CheckOut = () => {
             address: event.target.address.value,
             phone: event.target.phone.value
         }
+        axios.post('http://localhost:5000/order', order)
+            .then(res => {
+                const { data } = res
+                if(data.insertedId){
+                    toast.success('Oh greate!! Your order is on the way...')
+                    event.target.reset()
+                }
+            })
     }
+
 
     return (
         <div className='w-50 mx-auto'>
             <h2>Please order: {service.name}</h2>
 
             <form onSubmit={handlePlaceOrder}>
-                <input className='w-100 mb-2' type="text" name='name' value={user.displayName} placeholder='Name' required readOnly disabled />
+                <input className='w-100 mb-2' type="text" name='name' value={user?.displayName} placeholder='Name' required readOnly disabled />
                 <br />
-                <input className='w-100 mb-2' type="email" name='email' value={user.email} placeholder='Email' required readOnly disabled />
+                <input className='w-100 mb-2' type="email" name='email' value={user?.email} placeholder='Email' required readOnly disabled />
                 <br />
                 <input className='w-100 mb-2' type="text" name='service' value={service.name} placeholder='Service' required disabled />
                 <br />
@@ -55,6 +66,7 @@ const CheckOut = () => {
                 <br />
                 <input className='btn btn-dark' type="submit" value='Place Order' />
             </form>
+
         </div>
     );
 };

@@ -5,7 +5,7 @@ import twitter from '../../../Images/Social/twitter.png'
 import github from '../../../Images/Social/github.png'
 import { useSignInWithGithub, useSignInWithGoogle, useSignInWithTwitter } from 'react-firebase-hooks/auth';
 import auth from '../../../Firebase/firebase.init';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../../../Shared/Loading/Loading';
 
 const SocialLogin = () => {
@@ -16,13 +16,16 @@ const SocialLogin = () => {
     const [signInWithTwitter, user3, loading3, error3] = useSignInWithTwitter(auth);
 
     const navigate = useNavigate()
+    
+    const location = useLocation()
+    let from = location.state?.from?.pathname || "/";
 
     const [signInWithGithub, user4, loading4, error4] = useSignInWithGithub(auth);
 
 
     let errorElement
     if (error || error3 || error4) {
-        errorElement = <div className='col-7 border border-danger pt-3 mb-3 mx-auto text-bold fw-bold' style={{fontFamily: 'monospace'}}>
+        errorElement = <div className='col-7 border border-danger pt-3 mb-3 mx-auto text-bold fw-bold' style={{ fontFamily: 'monospace' }}>
             <p className='text-danger text-center'>Error: {error?.message} {error3?.message} {error4?.message}</p>
         </div>
     }
@@ -33,7 +36,7 @@ const SocialLogin = () => {
     }
 
     if (user || user3 || user4) {
-        navigate('/home')
+        navigate(from, { replace: true });
     }
 
 

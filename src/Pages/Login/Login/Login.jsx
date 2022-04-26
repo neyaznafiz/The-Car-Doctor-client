@@ -6,8 +6,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../Firebase/firebase.init';
 import Loading from '../../../Shared/Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import PageTitle from '../../../Shared/PageTitle/PageTitle';
 
 const Login = () => {
@@ -79,10 +78,10 @@ const Login = () => {
     return (
         <div className='container mx-auto' >
 
-<PageTitle title='Login'></PageTitle>
+            <PageTitle title='Login'></PageTitle>
 
             <h2 className='text-center mt-5' style={{ fontFamily: 'initial' }}>Please Login</h2>
-            
+
 
             <Form onSubmit={handleSubmit} className="col-5 mx-auto">
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -100,7 +99,7 @@ const Login = () => {
 
 
                 <div className='mt-4'>
-                    <span onClick={resetPassword} className='text-secondary fw-bold text-decoration-none border-bottom border-dark px-2 pb-1' style={{ fontFamily: 'initial' }, { cursor: 'pointer' }}>Forget Password?</span>
+                    <span onClick={resetPassword} className='text-secondary fw-bold text-decoration-none border-bottom border-dark px-2 pb-1' style={{ fontFamily: 'initial' }, { cursor: 'pointer' }} >Forget Password?</span>
 
                     <p className='pt-3'>Are you new here? <Link to='/register' onClick={navigateRegister} className='text-secondary fw-bold text-decoration-none  border-bottom border-dark px-2 pb-1' style={{ fontFamily: 'initial' }}>Please Register</Link></p>
                 </div>
@@ -114,7 +113,7 @@ const Login = () => {
                 <SocialLogin></SocialLogin>
             </div>
 
-            <ToastContainer />
+
 
         </div>
     );

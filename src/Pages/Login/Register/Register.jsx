@@ -6,6 +6,7 @@ import './Register.css'
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { useState } from 'react';
 import Loading from '../../../Shared/Loading/Loading';
+import useToken from '../../../Hooks/useToken';
 
 const Register = () => {
 
@@ -19,6 +20,8 @@ const Register = () => {
     ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
 
     const [updateProfile, updating, errorForUpdateProfile] = useUpdateProfile(auth);
+
+const [token]=useToken(user)
 
     const navigate = useNavigate()
 
@@ -39,9 +42,8 @@ const Register = () => {
         return <Loading></Loading>
     }
 
-    if (user) {
-    //     navigate('/home')
-    console.log('user', user);
+    if (token) {
+        navigate('/home')
     }
 
 
@@ -56,7 +58,7 @@ const Register = () => {
            await createUserWithEmailAndPassword(email, password)
            await updateProfile({ displayName: name  });
            alert('Updated profile');
-           navigate('/home')
+        //    navigate('/home')
         // }
     }
 

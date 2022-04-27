@@ -15,7 +15,7 @@ const Orders = () => {
 
     useEffect(() => {
         const getOrders = async () => {
-            const email = user.email
+            const email = user?.email
             const url = `https://fierce-crag-21501.herokuapp.com/order?email=${email}`
 
             try {

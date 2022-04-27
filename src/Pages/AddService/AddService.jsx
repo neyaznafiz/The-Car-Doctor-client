@@ -18,7 +18,7 @@ const AddService = () => {
         })
             .then(res => res.json())
             .then(result => {
-                toast.success('You service successfully addeded.')
+                toast.success('Your service successfully addeded.')
             })
     }
 

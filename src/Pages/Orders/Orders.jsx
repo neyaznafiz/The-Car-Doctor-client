@@ -29,6 +29,7 @@ const Orders = () => {
                     navigate('/login')
                 }
             }
+            // finally { }
         }
         getOrders()
     }, [user])
@@ -38,7 +39,7 @@ const Orders = () => {
             <h2>your orders: {orders.length}</h2>
             {
 
-                orders.map(order=> <div key={order._id}>
+                orders.map(order => <div key={order._id}>
                     <p>{order.email}</p>
                     <p>{order.service}</p>
                 </div>)

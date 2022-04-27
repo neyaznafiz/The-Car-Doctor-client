@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { toast } from 'react-toastify';
 
 const AddService = () => {
 
@@ -17,7 +18,7 @@ const AddService = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result)
+                toast.success('You service successfully addeded.')
             })
     }
 

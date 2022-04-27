@@ -16,7 +16,6 @@ const Orders = () => {
     useEffect(() => {
         const getOrders = async () => {
             const email = user.email
-            console.log(user);
             const url = `https://fierce-crag-21501.herokuapp.com/order?email=${email}`
 
             try {
@@ -24,7 +23,7 @@ const Orders = () => {
                 setOrders(data)
             }
             catch (error) {
-                // console.log(error.message)
+                console.log(error.message)
                 if (error.response.status === 401 || error.response.status === 403) {
                     signOut(auth)
                     navigate('/login')
@@ -37,6 +36,13 @@ const Orders = () => {
     return (
         <div>
             <h2>your orders: {orders.length}</h2>
+            {
+
+                orders.map(order=> <div key={order._id}>
+                    <p>{order.email}</p>
+                    <p>{order.service}</p>
+                </div>)
+            }
         </div>
     );
 };

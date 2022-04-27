@@ -13,7 +13,7 @@ const Services = () => {
 
     useEffect(() => {
 
-        fetch('http://localhost:5000/service')
+        fetch('https://fierce-crag-21501.herokuapp.com/service')
             .then(res => res.json())
             .then(data => setServices(data))
 

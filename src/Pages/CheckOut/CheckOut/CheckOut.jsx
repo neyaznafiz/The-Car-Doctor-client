@@ -38,10 +38,10 @@ const CheckOut = () => {
             address: event.target.address.value,
             phone: event.target.phone.value
         }
-        axios.post('http://localhost:5000/order', order)
+        axios.post('https://fierce-crag-21501.herokuapp.com/order', order)
             .then(res => {
                 const { data } = res
-                if(data.insertedId){
+                if (data.insertedId) {
                     toast.success('Oh greate!! Your order is on the way...')
                     event.target.reset()
                 }

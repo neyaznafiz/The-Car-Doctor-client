@@ -7,7 +7,7 @@ const AddService = () => {
 
     const onSubmit = data => {
         console.log(data)
-        const url = `http://localhost:5000/service`
+        const url = `https://fierce-crag-21501.herokuapp.com/service`
         fetch(url, {
             method: 'POST',
             headers: {
@@ -15,10 +15,10 @@ const AddService = () => {
             },
             body: JSON.stringify(data)
         })
-        .then(res => res.json())
-        .then(result => {
-            console.log(result)
-        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result)
+            })
     }
 
 

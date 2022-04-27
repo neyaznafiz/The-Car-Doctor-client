@@ -8,8 +8,8 @@ const ManageServices = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
-            const url = `http://localhost:5000/service/${id}`
-            
+            const url = `https://fierce-crag-21501.herokuapp.com/service/${id}`
+
             fetch(url, {
                 method: "DELETE"
             })

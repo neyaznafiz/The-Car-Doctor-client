@@ -10,6 +10,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import { toast } from 'react-toastify';
 import PageTitle from '../../../Shared/PageTitle/PageTitle';
 import axios from 'axios';
+import useToken from '../../../Hooks/useToken';
 
 const Login = () => {
 
@@ -26,6 +27,8 @@ const Login = () => {
     const emailRef = useRef('')
     const passwordRef = useRef('')
     const navigate = useNavigate()
+
+    const [token]=useToken(user)
 
 
     const location = useLocation()
@@ -47,8 +50,8 @@ const Login = () => {
     }
 
 
-    if (user) {
-        // navigate(from, { replace: true });
+    if (token) {
+        navigate(from, { replace: true });
     }
 
     const handleSubmit = async event => {
@@ -58,8 +61,7 @@ const Login = () => {
         const password = passwordRef.current.value
 
         await signInWithEmailAndPassword(email, password)
-        const { data } = await axios.post('https://fierce-crag-21501.herokuapp.com/login', { email })
-        localStorage.setItem('accessToken', data.accessToken)
+
         navigate(from, { replace: true })
     }
 
